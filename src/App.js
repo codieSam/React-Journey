@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import TextForm from "./components/TextForm";
+// import About from "./components/about";
 
 function App() {
+  const [Mode, setMode] = useState("light");
+  const [toggleText, setToggleText] = useState("Dark");
+  const [navTextColor, setNavTextColor] = useState("dark");
+
+  const toggleMode = () => {
+    if (Mode === "light") {
+      setMode("dark");
+      setToggleText("Light");
+      setNavTextColor("light");
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
+    } else {
+      setMode("light");
+      setToggleText("Dark");
+      setNavTextColor("dark");
+      document.body.style.backgroundColor = "white";
+      document.body.style.color = "black";
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <Navbar
+        title="TextUtils"
+        aboutText="About"
+        mode={Mode}
+        toggleMode={toggleMode}
+        toggleText={toggleText}
+        navTextColor={navTextColor}
+      />
+      <TextForm heading="Enter the text to analyze" />
+      {/* <About /> */}
+    </section>
   );
 }
 
