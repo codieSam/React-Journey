@@ -3,8 +3,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-import About from "./components/about";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import About from "./components/about";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   const [Mode, setMode] = useState("light");
   const [toggleText, setToggleText] = useState("Dark");
@@ -45,34 +45,34 @@ function App() {
     <>
       <section>
         <Alert alert={alert} />
-        <Router>
-          <Navbar
-            title="TextUtils"
-            aboutText="About"
-            mode={Mode}
-            toggleMode={toggleMode}
-            toggleText={toggleText}
-            navTextColor={navTextColor}
-          />
-          <Routes>
-            <Route exact path="/about" element={<About />}></Route>
-            <Route
+        {/* <Router> */}
+        <Navbar
+          title="TextUtils"
+          aboutText="About"
+          mode={Mode}
+          toggleMode={toggleMode}
+          toggleText={toggleText}
+          navTextColor={navTextColor}
+        />
+        {/* <Routes> */}
+        {/* <Route exact path="/about" element={<About />}></Route> */}
+        {/* <Route
               exact
               path="/"
-              element={
-                <TextForm
-                  heading="Enter the text to manipulate"
-                  showAlert={showAlert}
-                />
-              }
-            >
-              {/* 
+              element={ */}
+        <TextForm
+          heading="Enter the text to manipulate"
+          showAlert={showAlert}
+        />
+        {/* }
+            > */}
+        {/* 
                 heading="Enter the text to analyze"
                 showAlert={showAlert}
               /> */}
-            </Route>
+        {/* </Route>
           </Routes>
-        </Router>
+        </Router> */}
       </section>
     </>
   );

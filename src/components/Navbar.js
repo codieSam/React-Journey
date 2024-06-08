@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -8,9 +8,9 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg bg-${props.mode} text-${props.navTextColor}`}
     >
       <div className="container-fluid">
-        <Link className={`navbar-brand text-${props.navTextColor}`} to="/">
+        <a className={`navbar-brand text-${props.navTextColor}`} href="#">
           {props.title}
-        </Link>
+        </a>
         <button
           className="navbar-toggler "
           type="button"
@@ -28,19 +28,19 @@ export default function Navbar(props) {
               <a
                 className={`nav-link active text-${props.navTextColor}`}
                 aria-current="page"
-                href="/"
+                href="#"
               >
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <Link
+            {/* <li className="nav-item">
+              <a
                 className={`nav-link active text-${props.navTextColor}`}
-                to="/about"
+                href="/about"
               >
                 {props.aboutText}
-              </Link>
-            </li>
+              </a>
+            </li> */}
           </ul>
 
           <form className="d-flex" role="search">
