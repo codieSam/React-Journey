@@ -11,7 +11,7 @@ export default function Navbar(props) {
           {props.title}
         </a>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler "
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -19,7 +19,7 @@ export default function Navbar(props) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon "></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -41,6 +41,7 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
+
           <form className="d-flex" role="search">
             <input
               className="form-control me-2"
@@ -52,7 +53,7 @@ export default function Navbar(props) {
               Search
             </button>
           </form>
-          <div class="form-check form-switch mx-5">
+          <div className="form-check form-switch mx-5">
             <input
               onClick={props.toggleMode}
               className="form-check-input"
@@ -72,7 +73,7 @@ Navbar.propTypes = {
   aboutText: PropTypes.string,
 };
 
-Navbar.defaultProps = {
-  title: "Title is here",
-  aboutText: "About section",
-};
+// Navbar.defaultProps = {
+//   title: "Title is here",
+//   aboutText: "About section",
+// };

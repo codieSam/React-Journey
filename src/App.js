@@ -2,12 +2,24 @@ import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
+import Alert from "./components/Alert";
 // import About from "./components/about";
 
 function App() {
   const [Mode, setMode] = useState("light");
   const [toggleText, setToggleText] = useState("Dark");
   const [navTextColor, setNavTextColor] = useState("dark");
+  const [alert, setAlert] = useState(null);
+
+  const showAlert = (message, type) => {
+    setAlert({
+      message: message,
+      type: type,
+    });
+    setTimeout(() => {
+      setAlert(null);
+    }, 1500);
+  };
 
   const toggleMode = () => {
     if (Mode === "light") {
@@ -16,14 +28,19 @@ function App() {
       setNavTextColor("light");
       document.body.style.backgroundColor = "black";
       document.body.style.color = "white";
+      showAlert("Dark mode enabled successfully", "success");
+      document.title = "TextUtild-Dark";
     } else {
       setMode("light");
       setToggleText("Dark");
       setNavTextColor("dark");
       document.body.style.backgroundColor = "white";
       document.body.style.color = "black";
+      showAlert("Light mode enabled successfully", "success");
+      document.title = "TextUtils-Light";
     }
   };
+
   return (
     <section>
       <Navbar
@@ -34,7 +51,8 @@ function App() {
         toggleText={toggleText}
         navTextColor={navTextColor}
       />
-      <TextForm heading="Enter the text to analyze" />
+      <Alert alert={alert} />
+      <TextForm heading="Enter the text to analyze" showAlert={showAlert} />
       {/* <About /> */}
     </section>
   );

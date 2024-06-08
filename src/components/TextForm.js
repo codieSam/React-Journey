@@ -6,6 +6,7 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Uppercase", "success");
   };
   const handleOnChange = (event) => {
     setText(event.target.value);
@@ -17,15 +18,18 @@ export default function TextForm(props) {
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase", "danger");
   };
   const handleDelClick = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("Cleared successfullly", "success");
   };
   const handleCopy = () => {
     let text = document.getElementById("myText");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Text copied successfully", "success");
   };
 
   const [text, setText] = useState("");
